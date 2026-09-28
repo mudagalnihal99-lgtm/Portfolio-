@@ -1,526 +1,732 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Mahammad Nihal | Portfolio</title>
+<title>Mahammad Nihal | Portfolio</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#07090b;
+    color:#fff;
+    line-height:1.6;
+}
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(7,9,11,.9);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid #20252a;
+}
+
+.logo{
+    font-size:23px;
+    font-weight:bold;
+}
+
+.logo span,
+.highlight{
+    color:#00e5ff;
+}
+
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+nav a{
+    color:#ddd;
+    text-decoration:none;
+    font-size:14px;
+}
+
+nav a:hover{
+    color:#00e5ff;
+}
+
+section{
+    padding:100px 7%;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+    radial-gradient(circle at 50% 0%,#12353c 0%,#07090b 48%);
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.small-title{
+    color:#00e5ff;
+    letter-spacing:4px;
+    font-size:14px;
+}
+
+.hero h1{
+    font-size:clamp(45px,9vw,85px);
+    line-height:1.05;
+    margin:20px 0;
+}
+
+.hero h2{
+    color:#aaa;
+    font-weight:normal;
+    font-size:24px;
+}
+
+.hero p{
+    color:#aaa;
+    max-width:650px;
+    margin:25px auto;
+    font-size:17px;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
+
+.btn{
+    display:inline-block;
+    padding:13px 24px;
+    border:1px solid #00e5ff;
+    border-radius:9px;
+    color:#00e5ff;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn.primary{
+    background:#00e5ff;
+    color:#000;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:55px;
+}
+
+.section-title h2{
+    font-size:38px;
+}
+
+.section-title span{
+    color:#00e5ff;
+}
+
+/* ABOUT */
+
+.about-container{
+    max-width:1050px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:350px 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.profile-img{
+    width:100%;
+    border-radius:22px;
+    border:2px solid #00e5ff;
+    box-shadow:0 0 35px rgba(0,229,255,.15);
+}
+
+.about-text p{
+    color:#aaa;
+    font-size:17px;
+    margin-bottom:18px;
+}
+
+.highlights{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:25px;
+}
+
+.highlight-box{
+    background:#11161a;
+    border:1px solid #252d32;
+    padding:12px 16px;
+    border-radius:10px;
+    color:#ddd;
+}
+
+/* SKILLS */
+
+.skills{
+    max-width:950px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:18px;
+}
+
+.skill{
+    background:#101417;
+    border:1px solid #252d32;
+    padding:25px 15px;
+    border-radius:15px;
+    text-align:center;
+    transition:.3s;
+}
+
+.skill:hover{
+    border-color:#00e5ff;
+    transform:translateY(-6px);
+}
+
+/* PROJECT */
+
+.project{
+    max-width:900px;
+    margin:auto;
+    background:#101417;
+    border:1px solid #252d32;
+    border-radius:20px;
+    padding:35px;
+    transition:.3s;
+}
+
+.project:hover{
+    border-color:#00e5ff;
+    transform:translateY(-5px);
+}
+
+.project h3{
+    color:#00e5ff;
+    font-size:28px;
+    margin-bottom:15px;
+}
+
+.project p{
+    color:#aaa;
+    margin-bottom:25px;
+}
+
+.tags{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:25px;
+}
+
+.tag{
+    padding:6px 12px;
+    border-radius:20px;
+    background:#172126;
+    color:#00e5ff;
+    font-size:13px;
+}
+
+/* HACKATHONS */
+
+.hackathons{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:22px;
+}
+
+.hack-card{
+    background:#101417;
+    border:1px solid #252d32;
+    border-radius:16px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.hack-card:hover{
+    transform:translateY(-7px);
+    border-color:#00e5ff;
+}
+
+.hack-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    display:block;
+}
+
+.hack-info{
+    padding:18px;
+}
+
+.hack-info h3{
+    color:#00e5ff;
+    font-size:19px;
+    margin-bottom:7px;
+}
+
+.hack-info p{
+    color:#999;
+    font-size:14px;
+}
+
+/* EDUCATION */
+
+.education{
+    max-width:800px;
+    margin:auto;
+    text-align:center;
+    background:#101417;
+    border:1px solid #252d32;
+    padding:35px;
+    border-radius:18px;
+}
+
+.education h3{
+    color:#00e5ff;
+    font-size:23px;
+}
+
+.education p{
+    color:#aaa;
+    margin-top:8px;
+}
+
+/* CONTACT */
+
+.contact{
+    text-align:center;
+}
+
+.contact p{
+    color:#aaa;
+    margin-bottom:25px;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid #20252a;
+    text-align:center;
+    padding:25px;
+    color:#777;
+}
+
+/* MOBILE */
+
+@media(max-width:750px){
+
+    nav{
+        padding:16px 5%;
     }
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #080808;
-      color: white;
-      line-height: 1.6;
+    nav ul{
+        display:none;
     }
 
-    /* NAVBAR */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 18px 8%;
-      background: rgba(8, 8, 8, 0.92);
-      backdrop-filter: blur(10px);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-      border-bottom: 1px solid #222;
+    section{
+        padding:85px 6%;
     }
 
-    .logo {
-      font-size: 22px;
-      font-weight: bold;
+    .hero h1{
+        font-size:52px;
     }
 
-    .logo span {
-      color: #00e5ff;
+    .hero h2{
+        font-size:21px;
     }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
+    .about-container{
+        grid-template-columns:1fr;
+        gap:30px;
     }
 
-    nav a {
-      color: #ddd;
-      text-decoration: none;
-      font-size: 14px;
+    .profile-img{
+        max-width:330px;
+        display:block;
+        margin:auto;
     }
 
-    nav a:hover {
-      color: #00e5ff;
+    .section-title h2{
+        font-size:32px;
     }
 
-    /* SECTIONS */
-    section {
-      padding: 100px 8%;
+    .hack-card img{
+        height:auto;
+        max-height:350px;
+        object-fit:contain;
+        background:#080808;
     }
-
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-
-      background:
-        radial-gradient(
-          circle at top,
-          #10333a 0%,
-          #080808 45%
-        );
-    }
-
-    .hero-small {
-      color: #00e5ff;
-      letter-spacing: 3px;
-      font-size: 14px;
-    }
-
-    .hero h1 {
-      font-size: clamp(45px, 9vw, 80px);
-      margin: 15px 0;
-    }
-
-    .hero h1 span {
-      color: #00e5ff;
-    }
-
-    .hero h2 {
-      color: #aaa;
-      font-weight: normal;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      max-width: 650px;
-      margin: auto;
-      color: #aaa;
-    }
-
-    /* BUTTONS */
-    .buttons {
-      margin-top: 30px;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 22px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      border: 1px solid #00e5ff;
-      color: #00e5ff;
-      transition: 0.3s;
-    }
-
-    .btn.primary {
-      background: #00e5ff;
-      color: #000;
-    }
-
-    .btn:hover {
-      transform: translateY(-4px);
-    }
-
-    /* SECTION TITLE */
-    .section-title {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-
-    .section-title h2 {
-      font-size: 36px;
-    }
-
-    .section-title span {
-      color: #00e5ff;
-    }
-
-    /* ABOUT */
-    .about {
-      max-width: 850px;
-      margin: auto;
-      text-align: center;
-      color: #aaa;
-      font-size: 17px;
-    }
-
-    /* SKILLS */
-    .skills {
-      display: grid;
-      grid-template-columns:
-        repeat(auto-fit, minmax(140px, 1fr));
-
-      gap: 15px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .skill {
-      padding: 22px;
-      text-align: center;
-      background: #111;
-      border: 1px solid #222;
-      border-radius: 12px;
-      transition: 0.3s;
-    }
-
-    .skill:hover {
-      border-color: #00e5ff;
-      transform: translateY(-5px);
-    }
-
-    /* PROJECT */
-    .project-card {
-      max-width: 850px;
-      margin: auto;
-      background: #111;
-      border: 1px solid #222;
-      padding: 30px;
-      border-radius: 16px;
-      transition: 0.3s;
-    }
-
-    .project-card:hover {
-      border-color: #00e5ff;
-      transform: translateY(-5px);
-    }
-
-    .project-card h3 {
-      color: #00e5ff;
-      margin-bottom: 12px;
-      font-size: 25px;
-    }
-
-    .project-card p {
-      color: #aaa;
-    }
-
-    /* EDUCATION */
-    .education {
-      text-align: center;
-      max-width: 700px;
-      margin: auto;
-    }
-
-    .education h3 {
-      color: #00e5ff;
-      margin-bottom: 8px;
-    }
-
-    .education p {
-      color: #aaa;
-    }
-
-    /* CONTACT */
-    .contact {
-      text-align: center;
-    }
-
-    .contact p {
-      color: #aaa;
-      margin-bottom: 25px;
-    }
-
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 25px;
-      border-top: 1px solid #222;
-      color: #777;
-    }
-
-    /* MOBILE */
-    @media (max-width: 700px) {
-
-      nav {
-        padding: 15px 5%;
-      }
-
-      nav ul {
-        display: none;
-      }
-
-      section {
-        padding: 80px 6%;
-      }
-
-      .hero h1 {
-        font-size: 48px;
-      }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
-
-  <nav>
-
-    <div class="logo">
-      Md<span>Nihal</span>
-    </div>
+<nav>
+    <div class="logo">Md<span>Nihal</span></div>
 
     <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#contact">Contact</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#hackathons">Hackathons</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
     </ul>
+</nav>
 
-  </nav>
 
+<!-- HERO -->
 
-  <!-- HERO -->
+<section class="hero" id="home">
 
-  <section class="hero" id="home">
+<div class="hero-content">
 
-    <div>
+<p class="small-title">HELLO, I'M</p>
 
-      <p class="hero-small">
-        HELLO, I'M
-      </p>
+<h1>
+Mahammad <span>Nihal</span>
+</h1>
 
-      <h1>
-        Mahammad <span>Nihal</span>
-      </h1>
+<h2>
+Electronics & Computer Engineering Undergraduate
+</h2>
 
-      <h2>
-        Electronics & Computer Engineering Student
-      </h2>
+<p>
+I build digital projects, explore technology and turn ideas
+into practical solutions through code, creativity and continuous learning.
+</p>
 
-      <p>
-        Undergraduate student passionate about technology,
-        web development, creative design and digital content.
-      </p>
+<div class="buttons">
 
-      <div class="buttons">
+<a href="#projects" class="btn primary">
+View Projects
+</a>
 
-        <a href="#projects" class="btn primary">
-          View Projects
-        </a>
+<a
+href="https://www.linkedin.com/in/mahammadnihal-mudagal-98b474331"
+target="_blank"
+class="btn">
+LinkedIn
+</a>
 
-        <a
-          href="https://www.linkedin.com/in/mahammadnihal-mudagal-98b474331"
-          target="_blank"
-          class="btn">
+</div>
 
-          LinkedIn
+</div>
 
-        </a>
+</section>
 
-      </div>
 
-    </div>
+<!-- ABOUT -->
 
-  </section>
+<section id="about">
 
+<div class="section-title">
+<h2>About <span>Me</span></h2>
+</div>
 
-  <!-- ABOUT -->
+<div class="about-container">
 
-  <section id="about">
+<img
+src="Profile photo.jpg"
+alt="Mahammad Nihal"
+class="profile-img">
 
-    <div class="section-title">
+<div class="about-text">
 
-      <h2>
-        About <span>Me</span>
-      </h2>
+<p>
+Hi, I'm Mahammad Nihal, an Electronics and Computer Engineering
+undergraduate at Basaveshwara Engineering College, Bagalkot.
+</p>
 
-    </div>
+<p>
+I'm interested in web development, Python, creative design,
+video editing and content creation.
+</p>
 
-    <div class="about">
+<p>
+I enjoy participating in hackathons, exploring new technologies
+and building practical digital projects that solve real-world problems.
+</p>
 
-      <p>
-        I'm an Electronics and Computer Engineering undergraduate
-        at Basaveshwara Engineering College, Bagalkot.
-      </p>
+<div class="highlights">
 
-      <br>
+<div class="highlight-box">🎓 ECE • 2028</div>
 
-      <p>
-        I'm interested in web development, Python, creative design,
-        video editing and content creation.
-      </p>
+<div class="highlight-box">💻 Web Development</div>
 
-      <br>
+<div class="highlight-box">🚀 Hackathons</div>
 
-      <p>
-        I enjoy learning new technologies and building practical
-        digital projects that solve real-world problems.
-      </p>
+<div class="highlight-box">🎨 Content Creation</div>
 
-    </div>
+</div>
 
-  </section>
+</div>
 
+</div>
 
-  <!-- SKILLS -->
+</section>
 
-  <section id="skills">
 
-    <div class="section-title">
+<!-- SKILLS -->
 
-      <h2>
-        My <span>Skills</span>
-      </h2>
+<section id="skills">
 
-    </div>
+<div class="section-title">
+<h2>My <span>Skills</span></h2>
+</div>
 
-    <div class="skills">
+<div class="skills">
 
-      <div class="skill">HTML</div>
+<div class="skill">🌐 HTML</div>
+<div class="skill">🎨 CSS</div>
+<div class="skill">⚡ JavaScript</div>
+<div class="skill">🐍 Python</div>
+<div class="skill">🖌️ Canva</div>
+<div class="skill">🎬 Video Editing</div>
+<div class="skill">📱 Content Creation</div>
 
-      <div class="skill">CSS</div>
+</div>
 
-      <div class="skill">JavaScript</div>
+</section>
 
-      <div class="skill">Python</div>
 
-      <div class="skill">Canva</div>
+<!-- PROJECT -->
 
-      <div class="skill">Video Editing</div>
+<section id="projects">
 
-      <div class="skill">Content Creation</div>
+<div class="section-title">
+<h2>Featured <span>Project</span></h2>
+</div>
 
-    </div>
+<div class="project">
 
-  </section>
+<h3>🚀 PrepPilot by MdNihal</h3>
 
+<p>
+An AI-powered student preparation platform designed to help
+students organize their preparation, practice mock tests,
+track performance and improve their learning journey.
+</p>
 
-  <!-- PROJECTS -->
+<div class="tags">
 
-  <section id="projects">
+<span class="tag">AI</span>
+<span class="tag">Web Development</span>
+<span class="tag">Student Platform</span>
+<span class="tag">Dashboard</span>
 
-    <div class="section-title">
+</div>
 
-      <h2>
-        My <span>Projects</span>
-      </h2>
+<a
+href="https://github.com/mudagalnihal99-lgtm/Preppilot.Ai"
+target="_blank"
+class="btn">
+View on GitHub
+</a>
 
-    </div>
+</div>
 
-    <div class="project-card">
+</section>
 
-      <h3>
-        🚀 PrepPilot by MdNihal
-      </h3>
 
-      <p>
-        An AI-powered student preparation platform designed
-        to help students organize their preparation, practice
-        mock tests, track performance and improve their
-        learning journey.
-      </p>
+<!-- HACKATHONS -->
 
-      <br>
+<section id="hackathons">
 
-      <a href="#" class="btn">
-        Live Demo
-      </a>
+<div class="section-title">
 
-    </div>
+<h2>
+Hackathons & <span>Experiences</span>
+</h2>
 
-  </section>
+</div>
 
+<div class="hackathons">
 
-  <!-- EDUCATION -->
 
-  <section id="education">
+<div class="hack-card">
 
-    <div class="section-title">
+<img
+src="Hackdevengers.jpg"
+alt="HackDevengers Hackathon">
 
-      <h2>
-        <span>Education</span>
-      </h2>
+<div class="hack-info">
 
-    </div>
+<h3>HackDevengers 1.0</h3>
 
-    <div class="education">
+<p>
+Certificate of Appreciation for submitting a project
+in the 8HR Online Hackathon.
+</p>
 
-      <h3>
-        Basaveshwara Engineering College, Bagalkot
-      </h3>
+</div>
 
-      <p>
-        Electronics and Computer Engineering
-      </p>
+</div>
 
-      <p>
-        Undergraduate • Expected Graduation: 2028
-      </p>
 
-    </div>
+<div class="hack-card">
 
-  </section>
+<img
+src="Code bharat.jpg"
+alt="CODE BHARAT 2025">
 
+<div class="hack-info">
 
-  <!-- CONTACT -->
+<h3>CODE BHARAT '25</h3>
 
-  <section id="contact">
+<p>
+Certificate of Participation in the national-level
+hackathon organised at IIT Dharwad.
+</p>
 
-    <div class="section-title">
+</div>
 
-      <h2>
-        Let's <span>Connect</span>
-      </h2>
+</div>
 
-    </div>
 
-    <div class="contact">
+<div class="hack-card">
 
-      <p>
-        Interested in collaboration, projects or technology?
-        Feel free to connect with me.
-      </p>
+<img
+src="Bec hackathon.jpg"
+alt="B.E.C Hackathon">
 
-      <a
-        href="mailto:mahammadnihalmudagal2@gmail.com"
-        class="btn primary">
+<div class="hack-info">
 
-        Email Me
+<h3>Engineering Hackathon</h3>
 
-      </a>
+<p>
+Certificate and participation experience from
+Basaveshwara Engineering College.
+</p>
 
-      <a
-        href="https://www.linkedin.com/in/mahammadnihal-mudagal-98b474331"
-        target="_blank"
-        class="btn">
+</div>
 
-        LinkedIn
+</div>
 
-      </a>
 
-    </div>
+<div class="hack-card">
 
-  </section>
+<img
+src="Hackdevengers 2.jpg"
+alt="HackDevengers Certificate">
 
+<div class="hack-info">
 
-  <!-- FOOTER -->
+<h3>HackDevengers Experience</h3>
 
-  <footer>
+<p>
+Another achievement and participation certificate
+from the Devengers community.
+</p>
 
-    © 2026 Mahammad Nihal. Built with HTML & CSS.
+</div>
 
-  </footer>
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- EDUCATION -->
+
+<section id="education">
+
+<div class="section-title">
+<h2><span>Education</span></h2>
+</div>
+
+<div class="education">
+
+<h3>
+Basaveshwara Engineering College, Bagalkot
+</h3>
+
+<p>
+Electronics and Computer Engineering
+</p>
+
+<p>
+Undergraduate • Expected Graduation: 2028
+</p>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="section-title">
+<h2>Let's <span>Connect</span></h2>
+</div>
+
+<div class="contact">
+
+<p>
+Interested in technology, collaboration or projects?
+Let's connect.
+</p>
+
+<div class="buttons">
+
+<a
+href="mailto:mahammadnihalmudagal2@gmail.com"
+class="btn primary">
+Email Me
+</a>
+
+<a
+href="https://www.linkedin.com/in/mahammadnihal-mudagal-98b474331"
+target="_blank"
+class="btn">
+LinkedIn
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+© 2026 Mahammad Nihal • Built with HTML & CSS
+
+</footer>
 
 </body>
 </html>
