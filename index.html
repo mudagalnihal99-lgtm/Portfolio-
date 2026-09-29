@@ -4,12 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mahammad Nihal | Portfolio</title>
+<title>Mahammad Nihal — Student • Developer • Creator</title>
 
 <meta name="description"
-content="Mahammad Nihal — Electronics & Computer Engineering undergraduate, developer and creator.">
+content="Personal website of Mahammad Nihal, an Electronics & Computer Engineering student, developer and creator.">
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -21,8 +22,8 @@ html{
 }
 
 body{
-    background:#090909;
-    color:#f4f4f4;
+    background:#0b0b0b;
+    color:#eeeeea;
     font-family:Arial, Helvetica, sans-serif;
     line-height:1.6;
 }
@@ -38,438 +39,497 @@ img{
 }
 
 :root{
-    --bg:#090909;
-    --card:#111111;
-    --line:#252525;
-    --text:#f4f4f4;
-    --muted:#999999;
+    --bg:#0b0b0b;
+    --surface:#121212;
+    --line:#292929;
+    --text:#eeeeea;
+    --muted:#999994;
     --accent:#00d9ff;
 }
 
-/* ================= NAVBAR ================= */
+/* ---------- NAV ---------- */
 
 nav{
     position:fixed;
     top:0;
     left:0;
     width:100%;
-    height:72px;
-    background:rgba(9,9,9,.88);
-    backdrop-filter:blur(12px);
-    border-bottom:1px solid var(--line);
+    height:68px;
+    z-index:1000;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:0 7%;
-    z-index:1000;
+
+    padding:0 6%;
+
+    background:rgba(11,11,11,.90);
+    backdrop-filter:blur(14px);
+
+    border-bottom:1px solid var(--line);
 }
 
 .logo{
-    font-size:20px;
-    font-weight:800;
-    letter-spacing:-1px;
+    font-size:19px;
+    font-weight:700;
+    letter-spacing:-.5px;
 }
 
 .logo span{
     color:var(--accent);
 }
 
-.nav-links{
+.nav-right{
     display:flex;
-    gap:28px;
-    list-style:none;
+    align-items:center;
+    gap:24px;
 }
 
-.nav-links a{
+.nav-right a{
+    font-size:12px;
     color:#aaa;
-    font-size:13px;
     transition:.25s;
 }
 
-.nav-links a:hover{
+.nav-right a:hover{
     color:white;
 }
 
-/* ================= GENERAL ================= */
+.nav-contact{
+    border:1px solid #444;
+    padding:7px 12px;
+}
 
-section{
-    padding:110px 7%;
-    max-width:1250px;
+.nav-contact:hover{
+    border-color:var(--accent);
+}
+
+/* ---------- COMMON ---------- */
+
+.wrapper{
+    width:min(1120px,88%);
     margin:auto;
 }
 
-.section-number{
-    color:var(--accent);
-    font-size:12px;
-    letter-spacing:3px;
-    margin-bottom:15px;
+section{
+    padding:110px 0;
 }
 
-.section-title{
-    font-size:clamp(35px,6vw,70px);
-    line-height:1;
-    letter-spacing:-3px;
+.section-heading{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:20px;
+
     margin-bottom:45px;
 }
 
-.muted{
-    color:var(--muted);
+.section-heading h2{
+    font-size:34px;
+    letter-spacing:-1.5px;
 }
 
-/* ================= HERO ================= */
+.section-heading span{
+    color:#666;
+    font-size:12px;
+}
+
+/* ---------- HERO ---------- */
 
 .hero{
     min-height:100vh;
-    padding-top:130px;
+
     display:grid;
-    grid-template-columns:1.3fr .7fr;
+    grid-template-columns:1.25fr .75fr;
     align-items:center;
+
     gap:70px;
+
+    padding-top:120px;
 }
 
-.hero-small{
+.intro{
     color:var(--accent);
     font-size:13px;
-    letter-spacing:4px;
-    margin-bottom:20px;
+    letter-spacing:1px;
+    margin-bottom:18px;
 }
 
 .hero h1{
-    font-size:clamp(55px,9vw,120px);
-    line-height:.88;
-    letter-spacing:-7px;
-    margin-bottom:30px;
+    font-size:clamp(55px,8vw,100px);
+    line-height:.92;
+    letter-spacing:-6px;
+    font-weight:800;
 }
 
 .hero h1 span{
     color:var(--accent);
 }
 
-.hero-description{
-    max-width:570px;
+.hero-text{
+    max-width:600px;
+    margin-top:28px;
+
     color:#aaa;
-    font-size:18px;
-    line-height:1.8;
+    font-size:17px;
 }
 
-.hero-buttons{
+.hero-text strong{
+    color:#eee;
+    font-weight:500;
+}
+
+.hero-actions{
     display:flex;
-    gap:14px;
-    margin-top:35px;
+    gap:12px;
+    margin-top:32px;
     flex-wrap:wrap;
 }
 
-.btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    padding:13px 21px;
-    border:1px solid var(--line);
+.button{
+    display:inline-block;
+
+    padding:12px 18px;
+
+    border:1px solid #363636;
+
     font-size:13px;
-    transition:.3s;
+
+    transition:.25s;
 }
 
-.btn-primary{
+.button:hover{
+    transform:translateY(-2px);
+    border-color:var(--accent);
+}
+
+.button-main{
     background:var(--accent);
     color:#000;
     border-color:var(--accent);
-    font-weight:bold;
+    font-weight:700;
 }
 
-.btn:hover{
-    transform:translateY(-3px);
+.hero-note{
+    margin-top:45px;
+    color:#666;
+    font-size:11px;
 }
 
-.hero-photo{
+.hero-image{
     position:relative;
 }
 
-.hero-photo img{
+.hero-image img{
     width:100%;
-    max-width:360px;
+    max-width:340px;
     aspect-ratio:4/5;
     object-fit:cover;
+
     margin-left:auto;
-    filter:grayscale(12%);
+
+    border:1px solid #333;
 }
 
-.photo-label{
+.hero-image::after{
+    content:"";
     position:absolute;
-    bottom:-18px;
-    left:30px;
-    background:var(--accent);
-    color:#000;
-    padding:10px 16px;
-    font-size:11px;
-    letter-spacing:2px;
-    font-weight:bold;
+
+    width:70px;
+    height:70px;
+
+    right:-15px;
+    bottom:-15px;
+
+    border-right:2px solid var(--accent);
+    border-bottom:2px solid var(--accent);
+
+    pointer-events:none;
 }
 
-/* ================= ABOUT ================= */
+/* ---------- ABOUT ---------- */
 
-.about-grid{
+.about{
+    border-top:1px solid var(--line);
+}
+
+.about-layout{
     display:grid;
     grid-template-columns:.8fr 1.2fr;
     gap:70px;
-    align-items:start;
 }
 
-.about-image img{
+.about-photo img{
     width:100%;
-    max-width:330px;
-    aspect-ratio:1/1;
+    max-width:280px;
+    aspect-ratio:1;
     object-fit:cover;
+
+    border-radius:2px;
 }
 
-.about-text{
+.about-copy{
     color:#aaa;
     font-size:17px;
-    line-height:1.9;
+    max-width:650px;
 }
 
-.about-text p{
-    margin-bottom:20px;
+.about-copy p{
+    margin-bottom:22px;
 }
 
-.info-grid{
+.about-copy .highlight{
+    color:#eee;
+}
+
+.quick-info{
+    margin-top:35px;
+
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:12px;
-    margin-top:30px;
-}
 
-.info-box{
     border-top:1px solid var(--line);
-    padding-top:12px;
 }
 
-.info-box small{
+.quick-info div{
+    padding:15px 10px 15px 0;
+    border-bottom:1px solid var(--line);
+}
+
+.quick-info small{
     display:block;
     color:#666;
     font-size:10px;
+    margin-bottom:3px;
     text-transform:uppercase;
-    letter-spacing:2px;
-    margin-bottom:4px;
 }
 
-/* ================= SKILLS ================= */
+/* ---------- SKILLS ---------- */
 
-.skills-grid{
+.skills{
+    border-top:1px solid var(--line);
+}
+
+.skill-row{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
+    grid-template-columns:180px 1fr;
+
+    padding:22px 0;
+
+    border-top:1px solid var(--line);
 }
 
-.skill-card{
-    background:var(--card);
-    border:1px solid var(--line);
-    padding:30px;
-    min-height:230px;
-    transition:.3s;
+.skill-row:last-child{
+    border-bottom:1px solid var(--line);
 }
 
-.skill-card:hover{
-    border-color:#444;
-    transform:translateY(-5px);
+.skill-row h3{
+    font-size:14px;
+    font-weight:500;
 }
 
-.skill-card h3{
-    margin-bottom:22px;
-    font-size:19px;
-}
-
-.skill-list{
+.skill-items{
     display:flex;
     flex-wrap:wrap;
     gap:8px;
 }
 
-.skill{
+.skill-items span{
+    color:#aaa;
     border:1px solid #303030;
-    padding:7px 10px;
+    padding:6px 10px;
     font-size:12px;
-    color:#bbb;
 }
 
-/* ================= PROJECT ================= */
+/* ---------- PROJECTS ---------- */
 
-.project{
+.projects{
     border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-    padding:45px 0;
-    display:grid;
-    grid-template-columns:.8fr 1.2fr;
-    gap:60px;
 }
 
-.project-label{
+.project-card{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+    border:1px solid var(--line);
+    background:#101010;
+}
+
+.project-left{
+    padding:45px;
+    border-right:1px solid var(--line);
+}
+
+.project-right{
+    padding:45px;
+}
+
+.project-number{
     color:var(--accent);
     font-size:11px;
-    letter-spacing:3px;
+    margin-bottom:20px;
 }
 
-.project h3{
-    font-size:clamp(35px,5vw,65px);
-    letter-spacing:-3px;
-    margin:10px 0 20px;
+.project-card h3{
+    font-size:45px;
+    letter-spacing:-2px;
+    margin-bottom:18px;
 }
 
-.project-description{
-    color:#aaa;
-    max-width:600px;
-    font-size:16px;
+.project-card p{
+    color:#999;
+    font-size:15px;
 }
 
-.project-tags{
+.tags{
     display:flex;
-    gap:8px;
+    gap:7px;
     flex-wrap:wrap;
     margin:25px 0;
 }
 
-.project-tag{
-    padding:6px 10px;
-    border:1px solid #303030;
+.tags span{
+    font-size:10px;
     color:#aaa;
-    font-size:11px;
+    border:1px solid #333;
+    padding:5px 8px;
 }
 
 .project-link{
-    display:inline-block;
-    border-bottom:1px solid var(--accent);
-    padding-bottom:4px;
     color:var(--accent);
     font-size:13px;
 }
 
-/* ================= HACKATHONS ================= */
+/* ---------- HACKATHONS ---------- */
+
+.hackathons{
+    border-top:1px solid var(--line);
+}
 
 .gallery{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:18px;
+    grid-template-columns:1.2fr .8fr;
+    gap:15px;
 }
 
 .gallery-item{
-    background:var(--card);
-    border:1px solid var(--line);
+    position:relative;
     overflow:hidden;
+    background:#111;
+    border:1px solid var(--line);
 }
 
 .gallery-item img{
     width:100%;
     height:330px;
     object-fit:cover;
+
     transition:.4s;
 }
 
 .gallery-item:hover img{
-    transform:scale(1.03);
+    transform:scale(1.025);
 }
 
-.gallery-caption{
-    padding:17px;
-    color:#aaa;
-    font-size:13px;
+.gallery-item:nth-child(2) img,
+.gallery-item:nth-child(3) img{
+    height:240px;
 }
 
-/* ================= JOURNEY ================= */
-
-.timeline{
-    border-left:1px solid #333;
-    margin-left:8px;
-}
-
-.timeline-item{
-    position:relative;
-    padding:0 0 45px 35px;
-}
-
-.timeline-item::before{
-    content:"";
+.gallery-label{
     position:absolute;
-    left:-5px;
-    top:5px;
-    width:9px;
-    height:9px;
-    background:var(--accent);
+    left:14px;
+    bottom:14px;
+
+    background:#0b0b0b;
+    padding:7px 10px;
+
+    font-size:11px;
 }
 
-.timeline-year{
-    color:var(--accent);
-    font-size:12px;
-    letter-spacing:2px;
-    margin-bottom:7px;
+/* ---------- LITTLE NOTE ---------- */
+
+.note{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+
+    padding:55px 0;
+
+    text-align:center;
 }
 
-.timeline-item h3{
-    font-size:22px;
-    margin-bottom:7px;
-}
-
-.timeline-item p{
-    color:#999;
+.note p{
     max-width:650px;
+    margin:auto;
+
+    color:#aaa;
+    font-family:Georgia, serif;
+    font-size:25px;
+    line-height:1.5;
 }
 
-/* ================= CONTACT ================= */
+.note span{
+    color:var(--accent);
+}
+
+/* ---------- CONTACT ---------- */
 
 .contact{
     text-align:center;
-    padding-bottom:70px;
 }
 
 .contact h2{
-    font-size:clamp(45px,8vw,95px);
+    font-size:clamp(50px,8vw,90px);
+    line-height:.95;
     letter-spacing:-5px;
-    line-height:.9;
-    margin-bottom:25px;
 }
 
-.contact p{
+.contact-description{
     color:#999;
     max-width:550px;
-    margin:0 auto 30px;
+    margin:22px auto 30px;
 }
 
-.socials{
+.contact-links{
     display:flex;
     justify-content:center;
-    gap:10px;
     flex-wrap:wrap;
+    gap:8px;
 }
 
-.social{
-    border:1px solid var(--line);
-    padding:10px 15px;
+.contact-links a{
+    border:1px solid #333;
+    padding:10px 14px;
     font-size:12px;
     color:#aaa;
     transition:.25s;
 }
 
-.social:hover{
-    border-color:var(--accent);
+.contact-links a:hover{
     color:var(--accent);
+    border-color:var(--accent);
 }
 
-.whatsapp{
-    border-color:var(--accent);
+.contact-links .whatsapp{
     color:var(--accent);
+    border-color:#087f92;
 }
 
-/* ================= FOOTER ================= */
+/* ---------- FOOTER ---------- */
 
 footer{
     border-top:1px solid var(--line);
-    padding:25px 7%;
+
+    padding:22px 6%;
+
     display:flex;
     justify-content:space-between;
-    gap:20px;
+
     color:#666;
-    font-size:11px;
+    font-size:10px;
 }
 
-/* ================= MOBILE ================= */
+/* ---------- MOBILE ---------- */
 
 @media(max-width:800px){
 
@@ -477,19 +537,14 @@ footer{
         padding:0 5%;
     }
 
-    .nav-links{
+    .nav-right a:not(.nav-contact){
         display:none;
     }
 
-    section{
-        padding:85px 6%;
-    }
-
     .hero{
-        min-height:auto;
-        padding-top:125px;
         grid-template-columns:1fr;
         gap:45px;
+        padding-top:120px;
     }
 
     .hero h1{
@@ -497,49 +552,83 @@ footer{
         letter-spacing:-4px;
     }
 
-    .hero-description{
+    .hero-text{
         font-size:16px;
     }
 
-    .hero-photo img{
+    .hero-image img{
         margin:auto;
         max-width:300px;
     }
 
-    .about-grid{
-        grid-template-columns:1fr;
-        gap:40px;
+    .hero-image::after{
+        right:10px;
     }
 
-    .about-image img{
-        max-width:280px;
+    section{
+        padding:80px 0;
     }
 
-    .skills-grid{
+    .section-heading{
+        margin-bottom:30px;
+    }
+
+    .section-heading h2{
+        font-size:28px;
+    }
+
+    .about-layout{
+        grid-template-columns:1fr;
+        gap:35px;
+    }
+
+    .about-photo img{
+        max-width:250px;
+    }
+
+    .skill-row{
+        grid-template-columns:1fr;
+        gap:15px;
+    }
+
+    .project-card{
         grid-template-columns:1fr;
     }
 
-    .project{
-        grid-template-columns:1fr;
-        gap:25px;
+    .project-left{
+        border-right:0;
+        border-bottom:1px solid var(--line);
+        padding:30px;
+    }
+
+    .project-right{
+        padding:30px;
+    }
+
+    .project-card h3{
+        font-size:38px;
     }
 
     .gallery{
         grid-template-columns:1fr;
     }
 
-    .gallery-item img{
+    .gallery-item img,
+    .gallery-item:nth-child(2) img,
+    .gallery-item:nth-child(3) img{
         height:260px;
     }
 
-    .section-title{
-        letter-spacing:-2px;
+    .note p{
+        font-size:21px;
     }
 
     footer{
         flex-direction:column;
+        gap:8px;
         text-align:center;
     }
+
 }
 
 </style>
@@ -547,7 +636,7 @@ footer{
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
+<!-- NAVIGATION -->
 
 <nav>
 
@@ -555,125 +644,144 @@ footer{
         Md<span>.</span>Nihal
     </a>
 
-    <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#hackathons">Hackathons</a></li>
-        <li><a href="#journey">Journey</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div class="nav-right">
+
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#hackathons">Hackathons</a>
+
+        <a href="#contact" class="nav-contact">
+            Let's talk
+        </a>
+
+    </div>
 
 </nav>
 
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 
-<section class="hero" id="home">
+<main id="home">
+
+<section class="hero wrapper">
 
     <div>
 
-        <div class="hero-small">
-            HELLO, I'M
+        <div class="intro">
+            Electronics & Computer Engineering student
         </div>
 
         <h1>
-            Mahammad<br>
+            Hey, I'm<br>
             <span>Nihal.</span>
         </h1>
 
-        <p class="hero-description">
-            Electronics & Computer Engineering undergraduate
-            who enjoys building things, experimenting with technology,
-            creating content and turning ideas into practical projects.
+        <p class="hero-text">
+            I'm a student from Bagalkot who likes
+            <strong>building websites, trying new technologies,
+            joining hackathons</strong> and making things that
+            are actually useful.
         </p>
 
-        <div class="hero-buttons">
+        <div class="hero-actions">
 
-            <a href="#work" class="btn btn-primary">
-                Explore My Work →
+            <a href="#projects" class="button button-main">
+                See what I've built →
             </a>
 
-            <a href="#contact" class="btn">
-                Contact Me
+            <a href="#contact" class="button">
+                Say hello
             </a>
 
+        </div>
+
+        <div class="hero-note">
+            Currently learning, building and figuring things out.
         </div>
 
     </div>
 
 
-    <div class="hero-photo">
+    <div class="hero-image">
 
-        <img src="Profile%20photo.jpg"
-             alt="Mahammad Nihal">
-
-        <div class="photo-label">
-            ECE • 2028
-        </div>
+        <img
+            src="Profile%20photo.jpg"
+            alt="Mahammad Nihal">
 
     </div>
 
 </section>
 
 
-<!-- ================= ABOUT ================= -->
+<!-- ABOUT -->
 
-<section id="about">
+<section class="about">
 
-    <div class="section-number">01 / ABOUT</div>
+<div class="wrapper">
 
-    <h2 class="section-title">
-        A little about me.
-    </h2>
+    <div class="section-heading">
 
-    <div class="about-grid">
+        <h2>About me</h2>
 
-        <div class="about-image">
+        <span>A student, still figuring it out.</span>
 
-            <img src="Profile%20photo.jpg"
-                 alt="Mahammad Nihal">
+    </div>
+
+
+    <div class="about-layout">
+
+        <div class="about-photo">
+
+            <img
+                src="Profile%20photo.jpg"
+                alt="Mahammad Nihal">
 
         </div>
 
-        <div class="about-text">
+
+        <div class="about-copy">
 
             <p>
-                I'm Mahammad Nihal, an Electronics & Computer Engineering
-                undergraduate at Basaveshwara Engineering College, Bagalkot.
+                I'm <span class="highlight">Mahammad Nihal</span>,
+                an Electronics & Computer Engineering undergraduate
+                at Basaveshwara Engineering College, Bagalkot.
             </p>
 
             <p>
-                I enjoy exploring web development, programming,
-                creative design and content creation. I also like
-                participating in hackathons where ideas have to become
-                something real.
+                I started getting interested in the software side
+                of engineering through websites, programming and
+                small projects. Somewhere along the way, hackathons
+                became another excuse to turn random ideas into
+                something people can actually see and use.
             </p>
 
             <p>
-                I'm still learning and experimenting — one project,
-                one mistake and one new idea at a time.
+                I'm interested in web development, Python,
+                creative design, video editing and content creation.
+                Right now I'm also spending time learning Java and DSA.
             </p>
 
-            <div class="info-grid">
 
-                <div class="info-box">
+            <div class="quick-info">
+
+                <div>
+                    <small>Studying</small>
+                    Electronics & Computer Engineering
+                </div>
+
+                <div>
                     <small>College</small>
                     Basaveshwara Engineering College
                 </div>
 
-                <div class="info-box">
-                    <small>Branch</small>
-                    Electronics & Computer Engineering
-                </div>
-
-                <div class="info-box">
-                    <small>Expected Graduation</small>
+                <div>
+                    <small>Graduation</small>
                     2028
                 </div>
 
-                <div class="info-box">
-                    <small>Based In</small>
+                <div>
+                    <small>Location</small>
                     Bagalkot, Karnataka
                 </div>
 
@@ -683,138 +791,170 @@ footer{
 
     </div>
 
+</div>
+
 </section>
 
 
-<!-- ================= SKILLS ================= -->
+<!-- SKILLS -->
 
-<section id="skills">
+<section class="skills" id="skills">
 
-    <div class="section-number">02 / SKILLS</div>
+<div class="wrapper">
 
-    <h2 class="section-title">
-        Things I work with.
-    </h2>
+    <div class="section-heading">
 
-    <div class="skills-grid">
+        <h2>What I use</h2>
 
-        <div class="skill-card">
+        <span>Tools I'm familiar with</span>
 
-            <h3>Development</h3>
-
-            <div class="skill-list">
-                <span class="skill">HTML</span>
-                <span class="skill">CSS</span>
-                <span class="skill">JavaScript</span>
-                <span class="skill">Python</span>
-            </div>
-
-        </div>
+    </div>
 
 
-        <div class="skill-card">
+    <div class="skill-row">
 
-            <h3>Creative</h3>
+        <h3>Development</h3>
 
-            <div class="skill-list">
-                <span class="skill">Canva</span>
-                <span class="skill">Video Editing</span>
-                <span class="skill">Content Creation</span>
-            </div>
+        <div class="skill-items">
 
-        </div>
-
-
-        <div class="skill-card">
-
-            <h3>Tools & Learning</h3>
-
-            <div class="skill-list">
-                <span class="skill">GitHub</span>
-                <span class="skill">Git</span>
-                <span class="skill">Java</span>
-                <span class="skill">DSA</span>
-            </div>
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Python</span>
 
         </div>
 
     </div>
 
+
+    <div class="skill-row">
+
+        <h3>Creative</h3>
+
+        <div class="skill-items">
+
+            <span>Canva</span>
+            <span>Video Editing</span>
+            <span>Content Creation</span>
+
+        </div>
+
+    </div>
+
+
+    <div class="skill-row">
+
+        <h3>Currently learning</h3>
+
+        <div class="skill-items">
+
+            <span>Java</span>
+            <span>DSA</span>
+            <span>Git & GitHub</span>
+
+        </div>
+
+    </div>
+
+</div>
+
 </section>
 
 
-<!-- ================= WORK ================= -->
+<!-- PROJECTS -->
 
-<section id="work">
+<section class="projects" id="projects">
 
-    <div class="section-number">03 / SELECTED WORK</div>
+<div class="wrapper">
 
-    <h2 class="section-title">
-        Things I've built.
-    </h2>
+    <div class="section-heading">
+
+        <h2>Things I've built</h2>
+
+        <span>Selected work</span>
+
+    </div>
 
 
-    <div class="project">
+    <div class="project-card">
 
-        <div>
+        <div class="project-left">
 
-            <div class="project-label">
-                FEATURED PROJECT
+            <div class="project-number">
+                PROJECT 01
             </div>
 
-            <h3>
-                PrepPilot
-            </h3>
+            <h3>PrepPilot</h3>
+
+            <p>
+                A student preparation platform I worked on to make
+                exam preparation more organized and personalized.
+            </p>
 
         </div>
 
 
-        <div>
+        <div class="project-right">
 
-            <p class="project-description">
-                An AI-focused student preparation platform designed
-                around mock tests, preparation tracking, study focus
-                and a personalized student dashboard.
+            <p>
+                The project includes a student dashboard, mock-test
+                flow, preparation tracking and authentication.
+                It started as an idea and gradually became a real
+                working project.
             </p>
 
-            <div class="project-tags">
-                <span class="project-tag">Web Development</span>
-                <span class="project-tag">Supabase</span>
-                <span class="project-tag">Student Platform</span>
+
+            <div class="tags">
+
+                <span>Web Development</span>
+                <span>Supabase</span>
+                <span>Student Platform</span>
+
             </div>
 
+
             <a
-              href="https://github.com/mudagalnihal99-lgtm/Preppilot.Ai"
-              target="_blank"
-              class="project-link">
-              View on GitHub ↗
+                href="https://github.com/mudagalnihal99-lgtm/Preppilot.Ai"
+                target="_blank"
+                class="project-link">
+
+                Open GitHub repository ↗
+
             </a>
 
         </div>
 
     </div>
 
+</div>
+
 </section>
 
 
-<!-- ================= HACKATHONS ================= -->
+<!-- HACKATHONS -->
 
-<section id="hackathons">
+<section class="hackathons" id="hackathons">
 
-    <div class="section-number">04 / HACKATHONS</div>
+<div class="wrapper">
 
-    <h2 class="section-title">
-        Built. Presented. Learned.
-    </h2>
+    <div class="section-heading">
+
+        <h2>Hackathon stuff</h2>
+
+        <span>Some things I've been part of</span>
+
+    </div>
+
 
     <div class="gallery">
 
         <div class="gallery-item">
 
-            <img src="Hackdevengers.jpg"
-                 alt="Hack Devengers">
+            <img
+                src="Hackdevengers.jpg"
+                alt="Hack Devengers">
 
-            <div class="gallery-caption">
+            <div class="gallery-label">
                 Hack Devengers
             </div>
 
@@ -823,10 +963,11 @@ footer{
 
         <div class="gallery-item">
 
-            <img src="Code%20bharat.jpg"
-                 alt="Code Bharat">
+            <img
+                src="Code%20bharat.jpg"
+                alt="Code Bharat">
 
-            <div class="gallery-caption">
+            <div class="gallery-label">
                 CODE BHARAT '25
             </div>
 
@@ -835,10 +976,11 @@ footer{
 
         <div class="gallery-item">
 
-            <img src="Bec%20hackathon.jpg"
-                 alt="BEC Hackathon">
+            <img
+                src="Bec%20hackathon.jpg"
+                alt="BEC Hackathon">
 
-            <div class="gallery-caption">
+            <div class="gallery-label">
                 BEC Hackathon
             </div>
 
@@ -847,207 +989,133 @@ footer{
 
         <div class="gallery-item">
 
-            <img src="Hackdevengers%202.jpg"
-                 alt="Hack Devengers Certificate">
+            <img
+                src="Hackdevengers%202.jpg"
+                alt="Hack Devengers">
 
-            <div class="gallery-caption">
-                Hackathon Experience
+            <div class="gallery-label">
+                Hack Devengers
             </div>
 
         </div>
 
     </div>
+
+</div>
 
 </section>
 
 
-<!-- ================= JOURNEY ================= -->
+<!-- PERSONAL NOTE -->
 
-<section id="journey">
+<div class="note">
 
-    <div class="section-number">05 / JOURNEY</div>
-
-    <h2 class="section-title">
-        Still becoming.
-    </h2>
-
-    <div class="timeline">
-
-        <div class="timeline-item">
-
-            <div class="timeline-year">
-                ENGINEERING
-            </div>
-
-            <h3>
-                Electronics & Computer Engineering
-            </h3>
-
-            <p>
-                Started my engineering journey and began exploring
-                both electronics and software.
-            </p>
-
-        </div>
-
-
-        <div class="timeline-item">
-
-            <div class="timeline-year">
-                PROJECTS
-            </div>
-
-            <h3>
-                Started building
-            </h3>
-
-            <p>
-                From websites to student-focused applications,
-                started turning ideas into working projects.
-            </p>
-
-        </div>
-
-
-        <div class="timeline-item">
-
-            <div class="timeline-year">
-                HACKATHONS
-            </div>
-
-            <h3>
-                Ideas under pressure
-            </h3>
-
-            <p>
-                Participated in hackathons and learned how to
-                collaborate, present ideas and build within deadlines.
-            </p>
-
-        </div>
-
-
-        <div class="timeline-item">
-
-            <div class="timeline-year">
-                NOW
-            </div>
-
-            <h3>
-                Learning. Building. Repeating.
-            </h3>
-
-            <p>
-                Currently focusing on development, programming,
-                projects, placements and becoming better every day.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= CONTACT ================= -->
-
-<section id="contact" class="contact">
-
-    <div class="section-number">
-        06 / CONTACT
-    </div>
-
-    <h2>
-        Let's talk.
-    </h2>
+<div class="wrapper">
 
     <p>
-        Have an idea, project, collaboration or simply want to say hello?
-        Feel free to reach out.
+        “I don't have everything figured out yet.
+        <span>That's kind of the point.</span>”
+    </p>
+
+</div>
+
+</div>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+<div class="wrapper">
+
+    <div class="section-heading"
+         style="justify-content:center;">
+
+        <h2>Let's connect</h2>
+
+    </div>
+
+
+    <p class="contact-description">
+
+        If you want to talk about a project, hackathon,
+        collaboration — or just say hi — I'm around.
+
     </p>
 
 
-    <div class="socials">
-
-        <!-- WHATSAPP -->
+    <div class="contact-links">
 
         <a
-          class="social whatsapp"
-          href="https://wa.me/916364740408?text=Hi%20Nihal%2C%20I%20visited%20your%20portfolio."
-          target="_blank"
-          rel="noopener">
-          WhatsApp ↗
+            class="whatsapp"
+            href="https://wa.me/916364740408?text=Hi%20Nihal%2C%20I%20visited%20your%20portfolio."
+            target="_blank"
+            rel="noopener">
+
+            WhatsApp ↗
+
         </a>
 
 
-        <!-- EMAIL -->
-
         <a
-          class="social"
-          href="mailto:mahammadnihalmudagal2@gmail.com">
-          Email ↗
+            href="mailto:mahammadnihalmudagal2@gmail.com">
+
+            Email ↗
+
         </a>
 
 
-        <!-- LINKEDIN -->
-
         <a
-          class="social"
-          href="https://www.linkedin.com/in/mahammadnihal-mudagal-98b474331"
-          target="_blank"
-          rel="noopener">
-          LinkedIn ↗
+            href="https://www.linkedin.com/in/mahammadnihal-mudagal-98b474331"
+            target="_blank">
+
+            LinkedIn ↗
+
         </a>
 
 
-        <!-- GITHUB -->
-
         <a
-          class="social"
-          href="https://github.com/mudagalnihal99-lgtm"
-          target="_blank"
-          rel="noopener">
-          GitHub ↗
+            href="https://github.com/mudagalnihal99-lgtm"
+            target="_blank">
+
+            GitHub ↗
+
         </a>
 
 
-        <!-- INSTAGRAM -->
-
         <a
-          class="social"
-          href="https://www.instagram.com/__niha1/"
-          target="_blank"
-          rel="noopener">
-          Instagram ↗
+            href="https://www.instagram.com/__niha1/"
+            target="_blank">
+
+            Instagram ↗
+
         </a>
 
 
-        <!-- YOUTUBE -->
-
         <a
-          class="social"
-          href="https://youtube.com/@ni_hal-1"
-          target="_blank"
-          rel="noopener">
-          YouTube ↗
+            href="https://youtube.com/@ni_hal-1"
+            target="_blank">
+
+            YouTube ↗
+
         </a>
 
     </div>
+
+</div>
 
 </section>
 
+</main>
 
-<!-- ================= FOOTER ================= -->
+
+<!-- FOOTER -->
 
 <footer>
 
-    <div>
-        © 2026 Mahammad Nihal
-    </div>
+    <span>© 2026 Mahammad Nihal</span>
 
-    <div>
-        Built with curiosity.
-    </div>
+    <span>Made while learning.</span>
 
 </footer>
 
