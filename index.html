@@ -1,1086 +1,1055 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Mahammad Nihal | Portfolio</title>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    :root {
-      --bg: #080808;
-      --card: #101010;
-      --text: #f5f5f5;
-      --muted: #9b9b9b;
-      --accent: #00d9ff;
-      --border: #252525;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* NAVBAR */
-
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      padding: 18px 7%;
-
-      background: rgba(8, 8, 8, 0.92);
-      backdrop-filter: blur(10px);
-
-      border-bottom: 1px solid var(--border);
-    }
-
-    .logo {
-      font-size: 22px;
-      font-weight: bold;
-    }
-
-    .logo span {
-      color: var(--accent);
-    }
-
-    nav ul {
-      display: flex;
-      gap: 25px;
-      list-style: none;
-    }
-
-    nav ul a {
-      color: #ccc;
-      font-size: 14px;
-      transition: 0.3s;
-    }
-
-    nav ul a:hover {
-      color: var(--accent);
-    }
-
-    /* HERO */
-
-    .hero {
-      min-height: 100vh;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      text-align: center;
-
-      padding: 120px 7% 80px;
-
-      background:
-        radial-gradient(
-          circle at top,
-          #12282d 0%,
-          #080808 45%
-        );
-    }
-
-    .hero-content {
-      max-width: 850px;
-    }
-
-    .hello {
-      color: var(--accent);
-      letter-spacing: 4px;
-      font-size: 13px;
-      margin-bottom: 15px;
-    }
-
-    .hero h1 {
-      font-size: clamp(48px, 10vw, 90px);
-      line-height: 1;
-      margin-bottom: 20px;
-      letter-spacing: -3px;
-    }
-
-    .hero h1 span {
-      color: var(--accent);
-    }
-
-    .hero h2 {
-      font-size: 23px;
-      font-weight: normal;
-      color: #bdbdbd;
-    }
-
-    .hero-description {
-      max-width: 650px;
-      margin: 25px auto;
-      color: var(--muted);
-      font-size: 17px;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 30px;
-    }
-
-    .btn {
-      padding: 12px 22px;
-      border: 1px solid var(--accent);
-      border-radius: 7px;
-      color: var(--accent);
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .btn.primary {
-      background: var(--accent);
-      color: #000;
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-    }
-
-    .scroll-text {
-      margin-top: 70px;
-      color: #666;
-      font-size: 13px;
-    }
-
-    /* GENERAL */
-
-    section {
-      padding: 110px 7%;
-    }
-
-    .section-heading {
-      text-align: center;
-      margin-bottom: 55px;
-    }
-
-    .section-heading h2 {
-      font-size: 38px;
-    }
-
-    .section-heading span {
-      color: var(--accent);
-    }
-
-    .section-heading p {
-      max-width: 600px;
-      margin: 12px auto 0;
-      color: var(--muted);
-    }
-
-    /* ABOUT */
-
-    .about-container {
-      max-width: 1050px;
-      margin: auto;
-
-      display: grid;
-      grid-template-columns: 330px 1fr;
-      gap: 60px;
-
-      align-items: center;
-    }
-
-    .profile-photo {
-      width: 100%;
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      display: block;
-    }
-
-    .about-text p {
-      color: var(--muted);
-      margin-bottom: 18px;
-      font-size: 16px;
-    }
-
-    .info-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 25px;
-    }
-
-    .info {
-      background: var(--card);
-      border: 1px solid var(--border);
-      padding: 9px 13px;
-      border-radius: 6px;
-      font-size: 13px;
-      color: #ccc;
-    }
-
-    /* SKILLS */
-
-    .skill-groups {
-      max-width: 950px;
-      margin: auto;
-
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .skill-group {
-      background: var(--card);
-      border: 1px solid var(--border);
-      padding: 25px;
-      border-radius: 12px;
-    }
-
-    .skill-group h3 {
-      color: var(--accent);
-      margin-bottom: 15px;
-    }
-
-    .skill-group p {
-      color: var(--muted);
-    }
-
-    .skill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .skill-tag {
-      background: #191919;
-      border: 1px solid #2c2c2c;
-      padding: 7px 10px;
-      border-radius: 5px;
-      font-size: 13px;
-      color: #ddd;
-    }
-
-    /* PROJECTS */
-
-    .projects {
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .project-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 15px;
-
-      padding: 32px;
-
-      transition: 0.3s;
-    }
-
-    .project-card:hover {
-      border-color: #444;
-      transform: translateY(-4px);
-    }
-
-    .project-number {
-      color: #666;
-      font-size: 13px;
-    }
-
-    .project-card h3 {
-      color: var(--accent);
-      font-size: 28px;
-      margin: 8px 0 15px;
-    }
-
-    .project-card p {
-      color: var(--muted);
-      max-width: 800px;
-    }
-
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 20px 0;
-    }
-
-    .project-tag {
-      color: #aaa;
-      border: 1px solid #303030;
-      padding: 5px 10px;
-      border-radius: 20px;
-      font-size: 12px;
-    }
-
-    /* HACKATHONS */
-
-    .hackathons {
-      max-width: 1100px;
-      margin: auto;
-
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .hack-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-      transition: 0.3s;
-    }
-
-    .hack-card:hover {
-      transform: translateY(-4px);
-      border-color: #444;
-    }
-
-    .hack-card img {
-      width: 100%;
-      height: 260px;
-      object-fit: contain;
-      background: #050505;
-      display: block;
-    }
-
-    .hack-info {
-      padding: 18px;
-    }
-
-    .hack-info h3 {
-      color: var(--accent);
-      margin-bottom: 7px;
-      font-size: 18px;
-    }
-
-    .hack-info p {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    /* JOURNEY */
-
-    .timeline {
-      max-width: 750px;
-      margin: auto;
-      border-left: 1px solid #333;
-      padding-left: 30px;
-    }
-
-    .timeline-item {
-      position: relative;
-      margin-bottom: 35px;
-    }
-
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-
-      width: 9px;
-      height: 9px;
-
-      border-radius: 50%;
-
-      background: var(--accent);
-
-      left: -35px;
-      top: 7px;
-    }
-
-    .timeline-item small {
-      color: var(--accent);
-    }
-
-    .timeline-item h3 {
-      margin: 5px 0;
-    }
-
-    .timeline-item p {
-      color: var(--muted);
-    }
-
-    /* CONTACT */
-
-    .contact {
-      text-align: center;
-      max-width: 700px;
-      margin: auto;
-    }
-
-    .contact h2 {
-      font-size: 42px;
-      margin-bottom: 15px;
-    }
-
-    .contact p {
-      color: var(--muted);
-      margin-bottom: 30px;
-    }
-
-    .socials {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 30px;
-    }
-
-    .social {
-      border: 1px solid var(--border);
-      padding: 10px 16px;
-      border-radius: 6px;
-      color: #ccc;
-      transition: 0.3s;
-    }
-
-    .social:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    /* FOOTER */
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 25px;
-      text-align: center;
-      color: #666;
-      font-size: 13px;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 800px) {
-
-      nav {
-        padding: 16px 5%;
-      }
-
-      nav ul {
-        display: none;
-      }
-
-      section {
-        padding: 85px 6%;
-      }
-
-      .hero h1 {
-        font-size: 55px;
-      }
-
-      .hero h2 {
-        font-size: 19px;
-      }
-
-      .about-container {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-
-      .profile-photo {
-        max-width: 320px;
-        margin: auto;
-      }
-
-      .skill-groups {
-        grid-template-columns: 1fr;
-      }
-
-      .hackathons {
-        grid-template-columns: 1fr;
-      }
-
-      .hack-card img {
-        height: auto;
-        max-height: 450px;
-      }
-
-      .section-heading h2 {
-        font-size: 32px;
-      }
-
-      .contact h2 {
-        font-size: 34px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mahammad Nihal | Portfolio</title>
+
+<meta name="description"
+content="Mahammad Nihal — Electronics & Computer Engineering undergraduate, developer and creator.">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#090909;
+    color:#f4f4f4;
+    font-family:Arial, Helvetica, sans-serif;
+    line-height:1.6;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+:root{
+    --bg:#090909;
+    --card:#111111;
+    --line:#252525;
+    --text:#f4f4f4;
+    --muted:#999999;
+    --accent:#00d9ff;
+}
+
+/* ================= NAVBAR ================= */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:72px;
+    background:rgba(9,9,9,.88);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+    z-index:1000;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:800;
+    letter-spacing:-1px;
+}
+
+.logo span{
+    color:var(--accent);
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:#aaa;
+    font-size:13px;
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+/* ================= GENERAL ================= */
+
+section{
+    padding:110px 7%;
+    max-width:1250px;
+    margin:auto;
+}
+
+.section-number{
+    color:var(--accent);
+    font-size:12px;
+    letter-spacing:3px;
+    margin-bottom:15px;
+}
+
+.section-title{
+    font-size:clamp(35px,6vw,70px);
+    line-height:1;
+    letter-spacing:-3px;
+    margin-bottom:45px;
+}
+
+.muted{
+    color:var(--muted);
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100vh;
+    padding-top:130px;
+    display:grid;
+    grid-template-columns:1.3fr .7fr;
+    align-items:center;
+    gap:70px;
+}
+
+.hero-small{
+    color:var(--accent);
+    font-size:13px;
+    letter-spacing:4px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(55px,9vw,120px);
+    line-height:.88;
+    letter-spacing:-7px;
+    margin-bottom:30px;
+}
+
+.hero h1 span{
+    color:var(--accent);
+}
+
+.hero-description{
+    max-width:570px;
+    color:#aaa;
+    font-size:18px;
+    line-height:1.8;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:14px;
+    margin-top:35px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:13px 21px;
+    border:1px solid var(--line);
+    font-size:13px;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:var(--accent);
+    color:#000;
+    border-color:var(--accent);
+    font-weight:bold;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.hero-photo{
+    position:relative;
+}
+
+.hero-photo img{
+    width:100%;
+    max-width:360px;
+    aspect-ratio:4/5;
+    object-fit:cover;
+    margin-left:auto;
+    filter:grayscale(12%);
+}
+
+.photo-label{
+    position:absolute;
+    bottom:-18px;
+    left:30px;
+    background:var(--accent);
+    color:#000;
+    padding:10px 16px;
+    font-size:11px;
+    letter-spacing:2px;
+    font-weight:bold;
+}
+
+/* ================= ABOUT ================= */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:70px;
+    align-items:start;
+}
+
+.about-image img{
+    width:100%;
+    max-width:330px;
+    aspect-ratio:1/1;
+    object-fit:cover;
+}
+
+.about-text{
+    color:#aaa;
+    font-size:17px;
+    line-height:1.9;
+}
+
+.about-text p{
+    margin-bottom:20px;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin-top:30px;
+}
+
+.info-box{
+    border-top:1px solid var(--line);
+    padding-top:12px;
+}
+
+.info-box small{
+    display:block;
+    color:#666;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    margin-bottom:4px;
+}
+
+/* ================= SKILLS ================= */
+
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.skill-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    padding:30px;
+    min-height:230px;
+    transition:.3s;
+}
+
+.skill-card:hover{
+    border-color:#444;
+    transform:translateY(-5px);
+}
+
+.skill-card h3{
+    margin-bottom:22px;
+    font-size:19px;
+}
+
+.skill-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.skill{
+    border:1px solid #303030;
+    padding:7px 10px;
+    font-size:12px;
+    color:#bbb;
+}
+
+/* ================= PROJECT ================= */
+
+.project{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:45px 0;
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:60px;
+}
+
+.project-label{
+    color:var(--accent);
+    font-size:11px;
+    letter-spacing:3px;
+}
+
+.project h3{
+    font-size:clamp(35px,5vw,65px);
+    letter-spacing:-3px;
+    margin:10px 0 20px;
+}
+
+.project-description{
+    color:#aaa;
+    max-width:600px;
+    font-size:16px;
+}
+
+.project-tags{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin:25px 0;
+}
+
+.project-tag{
+    padding:6px 10px;
+    border:1px solid #303030;
+    color:#aaa;
+    font-size:11px;
+}
+
+.project-link{
+    display:inline-block;
+    border-bottom:1px solid var(--accent);
+    padding-bottom:4px;
+    color:var(--accent);
+    font-size:13px;
+}
+
+/* ================= HACKATHONS ================= */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.gallery-item{
+    background:var(--card);
+    border:1px solid var(--line);
+    overflow:hidden;
+}
+
+.gallery-item img{
+    width:100%;
+    height:330px;
+    object-fit:cover;
+    transition:.4s;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.03);
+}
+
+.gallery-caption{
+    padding:17px;
+    color:#aaa;
+    font-size:13px;
+}
+
+/* ================= JOURNEY ================= */
+
+.timeline{
+    border-left:1px solid #333;
+    margin-left:8px;
+}
+
+.timeline-item{
+    position:relative;
+    padding:0 0 45px 35px;
+}
+
+.timeline-item::before{
+    content:"";
+    position:absolute;
+    left:-5px;
+    top:5px;
+    width:9px;
+    height:9px;
+    background:var(--accent);
+}
+
+.timeline-year{
+    color:var(--accent);
+    font-size:12px;
+    letter-spacing:2px;
+    margin-bottom:7px;
+}
+
+.timeline-item h3{
+    font-size:22px;
+    margin-bottom:7px;
+}
+
+.timeline-item p{
+    color:#999;
+    max-width:650px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact{
+    text-align:center;
+    padding-bottom:70px;
+}
+
+.contact h2{
+    font-size:clamp(45px,8vw,95px);
+    letter-spacing:-5px;
+    line-height:.9;
+    margin-bottom:25px;
+}
+
+.contact p{
+    color:#999;
+    max-width:550px;
+    margin:0 auto 30px;
+}
+
+.socials{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.social{
+    border:1px solid var(--line);
+    padding:10px 15px;
+    font-size:12px;
+    color:#aaa;
+    transition:.25s;
+}
+
+.social:hover{
+    border-color:var(--accent);
+    color:var(--accent);
+}
+
+.whatsapp{
+    border-color:var(--accent);
+    color:var(--accent);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    border-top:1px solid var(--line);
+    padding:25px 7%;
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    color:#666;
+    font-size:11px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:800px){
+
+    nav{
+        padding:0 5%;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    section{
+        padding:85px 6%;
+    }
+
+    .hero{
+        min-height:auto;
+        padding-top:125px;
+        grid-template-columns:1fr;
+        gap:45px;
+    }
+
+    .hero h1{
+        font-size:64px;
+        letter-spacing:-4px;
+    }
+
+    .hero-description{
+        font-size:16px;
+    }
+
+    .hero-photo img{
+        margin:auto;
+        max-width:300px;
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+        gap:40px;
+    }
+
+    .about-image img{
+        max-width:280px;
+    }
+
+    .skills-grid{
+        grid-template-columns:1fr;
+    }
+
+    .project{
+        grid-template-columns:1fr;
+        gap:25px;
+    }
+
+    .gallery{
+        grid-template-columns:1fr;
+    }
+
+    .gallery-item img{
+        height:260px;
+    }
+
+    .section-title{
+        letter-spacing:-2px;
+    }
+
+    footer{
+        flex-direction:column;
+        text-align:center;
+    }
+}
+
+</style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- ================= NAVBAR ================= -->
 
 <nav>
 
-  <div class="logo">
-    Md<span>Nihal</span>
-  </div>
+    <a href="#home" class="logo">
+        Md<span>.</span>Nihal
+    </a>
 
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#certificates">Certificates</a></li>
-    <li><a href="#journey">Journey</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#hackathons">Hackathons</a></li>
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
 
 </nav>
 
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 
 <section class="hero" id="home">
 
-  <div class="hero-content">
+    <div>
 
-    <div class="hello">
-      HELLO, I'M
+        <div class="hero-small">
+            HELLO, I'M
+        </div>
+
+        <h1>
+            Mahammad<br>
+            <span>Nihal.</span>
+        </h1>
+
+        <p class="hero-description">
+            Electronics & Computer Engineering undergraduate
+            who enjoys building things, experimenting with technology,
+            creating content and turning ideas into practical projects.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#work" class="btn btn-primary">
+                Explore My Work →
+            </a>
+
+            <a href="#contact" class="btn">
+                Contact Me
+            </a>
+
+        </div>
+
     </div>
 
-    <h1>
-      Mahammad <span>Nihal</span>
-    </h1>
 
-    <h2>
-      Electronics & Computer Engineering Undergraduate
-    </h2>
+    <div class="hero-photo">
 
-    <p class="hero-description">
-      I like building things, learning new technologies and
-      turning ideas into practical projects.
-    </p>
+        <img src="Profile%20photo.jpg"
+             alt="Mahammad Nihal">
 
-    <div class="buttons">
-
-      <a href="#projects" class="btn primary">
-        Explore My Work
-      </a>
-
-      <a href="#contact" class="btn">
-        Contact Me
-      </a>
+        <div class="photo-label">
+            ECE • 2028
+        </div>
 
     </div>
-
-    <div class="scroll-text">
-      Scroll to explore ↓
-    </div>
-
-  </div>
 
 </section>
 
 
-<!-- ABOUT -->
+<!-- ================= ABOUT ================= -->
 
 <section id="about">
 
-  <div class="section-heading">
+    <div class="section-number">01 / ABOUT</div>
 
-    <h2>
-      About <span>Me</span>
+    <h2 class="section-title">
+        A little about me.
     </h2>
 
-    <p>
-      A little about who I am and what I enjoy building.
-    </p>
+    <div class="about-grid">
 
-  </div>
+        <div class="about-image">
 
+            <img src="Profile%20photo.jpg"
+                 alt="Mahammad Nihal">
 
-  <div class="about-container">
-
-    <img
-      src="Profile photo.jpg"
-      alt="Mahammad Nihal"
-      class="profile-photo"
-    >
-
-    <div class="about-text">
-
-      <p>
-        Hi, I'm Mahammad Nihal, an Electronics and Computer
-        Engineering undergraduate at Basaveshwara Engineering
-        College, Bagalkot.
-      </p>
-
-      <p>
-        I'm interested in web development, Python, creative
-        design, video editing and content creation.
-      </p>
-
-      <p>
-        I enjoy participating in hackathons, experimenting
-        with new technologies and building projects that solve
-        practical problems.
-      </p>
-
-      <div class="info-row">
-
-        <div class="info">
-          🎓 ECE • 2028
         </div>
 
-        <div class="info">
-          📍 Bagalkot, India
-        </div>
+        <div class="about-text">
 
-        <div class="info">
-          💻 Web Development
-        </div>
+            <p>
+                I'm Mahammad Nihal, an Electronics & Computer Engineering
+                undergraduate at Basaveshwara Engineering College, Bagalkot.
+            </p>
 
-        <div class="info">
-          🚀 Hackathons
-        </div>
+            <p>
+                I enjoy exploring web development, programming,
+                creative design and content creation. I also like
+                participating in hackathons where ideas have to become
+                something real.
+            </p>
 
-      </div>
+            <p>
+                I'm still learning and experimenting — one project,
+                one mistake and one new idea at a time.
+            </p>
+
+            <div class="info-grid">
+
+                <div class="info-box">
+                    <small>College</small>
+                    Basaveshwara Engineering College
+                </div>
+
+                <div class="info-box">
+                    <small>Branch</small>
+                    Electronics & Computer Engineering
+                </div>
+
+                <div class="info-box">
+                    <small>Expected Graduation</small>
+                    2028
+                </div>
+
+                <div class="info-box">
+                    <small>Based In</small>
+                    Bagalkot, Karnataka
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
-
-  </div>
 
 </section>
 
 
-<!-- SKILLS -->
+<!-- ================= SKILLS ================= -->
 
 <section id="skills">
 
-  <div class="section-heading">
+    <div class="section-number">02 / SKILLS</div>
 
-    <h2>
-      What I <span>Work With</span>
+    <h2 class="section-title">
+        Things I work with.
     </h2>
 
-    <p>
-      Technologies and creative tools I'm using while learning and building.
-    </p>
+    <div class="skills-grid">
 
-  </div>
+        <div class="skill-card">
 
+            <h3>Development</h3>
 
-  <div class="skill-groups">
+            <div class="skill-list">
+                <span class="skill">HTML</span>
+                <span class="skill">CSS</span>
+                <span class="skill">JavaScript</span>
+                <span class="skill">Python</span>
+            </div>
 
-    <div class="skill-group">
-
-      <h3>Development</h3>
-
-      <div class="skill-list">
-
-        <span class="skill-tag">HTML</span>
-        <span class="skill-tag">CSS</span>
-        <span class="skill-tag">JavaScript</span>
-        <span class="skill-tag">Python</span>
-
-      </div>
-
-    </div>
+        </div>
 
 
-    <div class="skill-group">
+        <div class="skill-card">
 
-      <h3>Creative</h3>
+            <h3>Creative</h3>
 
-      <div class="skill-list">
+            <div class="skill-list">
+                <span class="skill">Canva</span>
+                <span class="skill">Video Editing</span>
+                <span class="skill">Content Creation</span>
+            </div>
 
-        <span class="skill-tag">Canva</span>
-        <span class="skill-tag">Video Editing</span>
-        <span class="skill-tag">Content Creation</span>
-
-      </div>
-
-    </div>
+        </div>
 
 
-    <div class="skill-group">
+        <div class="skill-card">
 
-      <h3>Currently Learning</h3>
+            <h3>Tools & Learning</h3>
 
-      <div class="skill-list">
+            <div class="skill-list">
+                <span class="skill">GitHub</span>
+                <span class="skill">Git</span>
+                <span class="skill">Java</span>
+                <span class="skill">DSA</span>
+            </div>
 
-        <span class="skill-tag">Java</span>
-        <span class="skill-tag">DSA</span>
-        <span class="skill-tag">AI</span>
-        <span class="skill-tag">Git & GitHub</span>
-
-      </div>
+        </div>
 
     </div>
-
-  </div>
 
 </section>
 
 
-<!-- PROJECTS -->
+<!-- ================= WORK ================= -->
 
-<section id="projects">
+<section id="work">
 
-  <div class="section-heading">
+    <div class="section-number">03 / SELECTED WORK</div>
 
-    <h2>
-      Selected <span>Projects</span>
+    <h2 class="section-title">
+        Things I've built.
     </h2>
 
-    <p>
-      A few things I've worked on.
-    </p>
 
-  </div>
+    <div class="project">
+
+        <div>
+
+            <div class="project-label">
+                FEATURED PROJECT
+            </div>
+
+            <h3>
+                PrepPilot
+            </h3>
+
+        </div>
 
 
-  <div class="projects">
+        <div>
 
-    <div class="project-card">
+            <p class="project-description">
+                An AI-focused student preparation platform designed
+                around mock tests, preparation tracking, study focus
+                and a personalized student dashboard.
+            </p>
 
-      <div class="project-number">
-        PROJECT 01
-      </div>
+            <div class="project-tags">
+                <span class="project-tag">Web Development</span>
+                <span class="project-tag">Supabase</span>
+                <span class="project-tag">Student Platform</span>
+            </div>
 
-      <h3>
-        PrepPilot AI
-      </h3>
+            <a
+              href="https://github.com/mudagalnihal99-lgtm/Preppilot.Ai"
+              target="_blank"
+              class="project-link">
+              View on GitHub ↗
+            </a>
 
-      <p>
-        An AI-powered student preparation platform designed
-        to help students organize preparation, practice mock
-        tests, track performance and improve their learning journey.
-      </p>
-
-      <div class="project-tags">
-
-        <span class="project-tag">Web Development</span>
-        <span class="project-tag">AI</span>
-        <span class="project-tag">Student Platform</span>
-        <span class="project-tag">Dashboard</span>
-
-      </div>
-
-      <div class="buttons">
-
-        <a
-          href="https://github.com/mudagalnihal99-lgtm/Preppilot.Ai"
-          target="_blank"
-          class="btn"
-        >
-          GitHub →
-        </a>
-
-      </div>
+        </div>
 
     </div>
-
-  </div>
 
 </section>
 
 
-<!-- CERTIFICATES -->
+<!-- ================= HACKATHONS ================= -->
 
-<section id="certificates">
+<section id="hackathons">
 
-  <div class="section-heading">
+    <div class="section-number">04 / HACKATHONS</div>
 
-    <h2>
-      Hackathons & <span>Certificates</span>
+    <h2 class="section-title">
+        Built. Presented. Learned.
     </h2>
 
-    <p>
-      Some of the events and hackathon experiences I've been part of.
-    </p>
+    <div class="gallery">
 
-  </div>
+        <div class="gallery-item">
 
+            <img src="Hackdevengers.jpg"
+                 alt="Hack Devengers">
 
-  <div class="hackathons">
+            <div class="gallery-caption">
+                Hack Devengers
+            </div>
 
-
-    <div class="hack-card">
-
-      <img
-        src="Hackdevengers.jpg"
-        alt="HackDevengers Certificate"
-      >
-
-      <div class="hack-info">
-
-        <h3>
-          HackDevengers 1.0
-        </h3>
-
-        <p>
-          Certificate of Appreciation for an 8HR online hackathon.
-        </p>
-
-      </div>
-
-    </div>
+        </div>
 
 
-    <div class="hack-card">
+        <div class="gallery-item">
 
-      <img
-        src="Code%20bharat.jpg"
-        alt="CODE BHARAT Certificate"
-      >
+            <img src="Code%20bharat.jpg"
+                 alt="Code Bharat">
 
-      <div class="hack-info">
+            <div class="gallery-caption">
+                CODE BHARAT '25
+            </div>
 
-        <h3>
-          CODE BHARAT '25
-        </h3>
+        </div>
 
-        <p>
-          Certificate of Participation in a national-level hackathon.
-        </p>
 
-      </div>
+        <div class="gallery-item">
+
+            <img src="Bec%20hackathon.jpg"
+                 alt="BEC Hackathon">
+
+            <div class="gallery-caption">
+                BEC Hackathon
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img src="Hackdevengers%202.jpg"
+                 alt="Hack Devengers Certificate">
+
+            <div class="gallery-caption">
+                Hackathon Experience
+            </div>
+
+        </div>
 
     </div>
-
-
-    <div class="hack-card">
-
-      <img
-        src="Bec%20hackathon.jpg"
-        alt="BEC Hackathon Certificate"
-      >
-
-      <div class="hack-info">
-
-        <h3>
-          BEC Hackathon
-        </h3>
-
-        <p>
-          Hackathon experience at Basaveshwara Engineering College.
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <div class="hack-card">
-
-      <img
-        src="Hackdevengers%202.jpg"
-        alt="HackDevengers Certificate"
-      >
-
-      <div class="hack-info">
-
-        <h3>
-          HackDevengers Experience
-        </h3>
-
-        <p>
-          Another participation and achievement from the event.
-        </p>
-
-      </div>
-
-    </div>
-
-
-  </div>
 
 </section>
 
 
-<!-- JOURNEY -->
+<!-- ================= JOURNEY ================= -->
 
 <section id="journey">
 
-  <div class="section-heading">
+    <div class="section-number">05 / JOURNEY</div>
 
-    <h2>
-      My <span>Journey</span>
+    <h2 class="section-title">
+        Still becoming.
     </h2>
 
-    <p>
-      Learning, experimenting and building along the way.
-    </p>
+    <div class="timeline">
 
-  </div>
+        <div class="timeline-item">
+
+            <div class="timeline-year">
+                ENGINEERING
+            </div>
+
+            <h3>
+                Electronics & Computer Engineering
+            </h3>
+
+            <p>
+                Started my engineering journey and began exploring
+                both electronics and software.
+            </p>
+
+        </div>
 
 
-  <div class="timeline">
+        <div class="timeline-item">
+
+            <div class="timeline-year">
+                PROJECTS
+            </div>
+
+            <h3>
+                Started building
+            </h3>
+
+            <p>
+                From websites to student-focused applications,
+                started turning ideas into working projects.
+            </p>
+
+        </div>
 
 
-    <div class="timeline-item">
+        <div class="timeline-item">
 
-      <small>2024 →</small>
+            <div class="timeline-year">
+                HACKATHONS
+            </div>
 
-      <h3>
-        Started Engineering Journey
-      </h3>
+            <h3>
+                Ideas under pressure
+            </h3>
 
-      <p>
-        Began exploring Electronics and Computer Engineering
-        and different areas of technology.
-      </p>
+            <p>
+                Participated in hackathons and learned how to
+                collaborate, present ideas and build within deadlines.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-year">
+                NOW
+            </div>
+
+            <h3>
+                Learning. Building. Repeating.
+            </h3>
+
+            <p>
+                Currently focusing on development, programming,
+                projects, placements and becoming better every day.
+            </p>
+
+        </div>
 
     </div>
-
-
-    <div class="timeline-item">
-
-      <small>2025 →</small>
-
-      <h3>
-        Started Building Projects
-      </h3>
-
-      <p>
-        Started experimenting with web development,
-        Python and creative tools.
-      </p>
-
-    </div>
-
-
-    <div class="timeline-item">
-
-      <small>2026 →</small>
-
-      <h3>
-        Hackathons & Project Building
-      </h3>
-
-      <p>
-        Participated in hackathons, worked on projects
-        and started building a stronger development portfolio.
-      </p>
-
-    </div>
-
-
-    <div class="timeline-item">
-
-      <small>NOW →</small>
-
-      <h3>
-        Learning & Building
-      </h3>
-
-      <p>
-        Currently exploring Java, DSA, AI and full-stack
-        development while continuing to build projects.
-      </p>
-
-    </div>
-
-
-  </div>
 
 </section>
 
 
-<!-- CONTACT -->
+<!-- ================= CONTACT ================= -->
 
-<section id="contact">
+<section id="contact" class="contact">
 
-  <div class="contact">
+    <div class="section-number">
+        06 / CONTACT
+    </div>
 
     <h2>
-      Let's build something.
+        Let's talk.
     </h2>
 
     <p>
-      I'm always interested in learning, collaborating and
-      working on interesting ideas.
+        Have an idea, project, collaboration or simply want to say hello?
+        Feel free to reach out.
     </p>
-
-
-    <div class="buttons">
-
-      <a
-        href="mailto:mahammadnihalmudagal2@gmail.com"
-        class="btn primary"
-      >
-        Email Me
-      </a>
-
-      <a
-        href="https://www.linkedin.com/in/mahammadnihal-mudagal-98b474331"
-        target="_blank"
-        class="btn"
-      >
-        LinkedIn
-      </a>
-
-    </div>
 
 
     <div class="socials">
 
-      <a
-        href="https://github.com/mudagalnihal99-lgtm"
-        target="_blank"
-        class="social"
-      >
-        GitHub
-      </a>
+        <!-- WHATSAPP -->
 
-      <a
-        href="https://www.instagram.com/__niha1/"
-        target="_blank"
-        class="social"
-      >
-        Instagram
-      </a>
+        <a
+          class="social whatsapp"
+          href="https://wa.me/916364740408?text=Hi%20Nihal%2C%20I%20visited%20your%20portfolio."
+          target="_blank"
+          rel="noopener">
+          WhatsApp ↗
+        </a>
 
-      <a
-        href="https://youtube.com/@ni_hal-1"
-        target="_blank"
-        class="social"
-      >
-        YouTube
-      </a>
 
-      <a
-        href="mailto:mahammadnihalmudagal2@gmail.com"
-        class="social"
-      >
-        Email
-      </a>
+        <!-- EMAIL -->
+
+        <a
+          class="social"
+          href="mailto:mahammadnihalmudagal2@gmail.com">
+          Email ↗
+        </a>
+
+
+        <!-- LINKEDIN -->
+
+        <a
+          class="social"
+          href="https://www.linkedin.com/in/mahammadnihal-mudagal-98b474331"
+          target="_blank"
+          rel="noopener">
+          LinkedIn ↗
+        </a>
+
+
+        <!-- GITHUB -->
+
+        <a
+          class="social"
+          href="https://github.com/mudagalnihal99-lgtm"
+          target="_blank"
+          rel="noopener">
+          GitHub ↗
+        </a>
+
+
+        <!-- INSTAGRAM -->
+
+        <a
+          class="social"
+          href="https://www.instagram.com/__niha1/"
+          target="_blank"
+          rel="noopener">
+          Instagram ↗
+        </a>
+
+
+        <!-- YOUTUBE -->
+
+        <a
+          class="social"
+          href="https://youtube.com/@ni_hal-1"
+          target="_blank"
+          rel="noopener">
+          YouTube ↗
+        </a>
 
     </div>
-
-  </div>
 
 </section>
 
 
+<!-- ================= FOOTER ================= -->
+
 <footer>
 
-  © 2026 Mahammad Nihal. Built with HTML & CSS.
+    <div>
+        © 2026 Mahammad Nihal
+    </div>
+
+    <div>
+        Built with curiosity.
+    </div>
 
 </footer>
-
 
 </body>
 </html>
