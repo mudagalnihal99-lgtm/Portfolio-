@@ -921,8 +921,141 @@ footer{
 
 </section>
 
+<style>
+/* =========================
+   SKILLS SECTION
+========================= */
+
+#skills{
+    width:100%;
+    box-sizing:border-box;
+}
+
+#skills *{
+    box-sizing:border-box;
+}
+
+#skills .skills-intro{
+    max-width:620px;
+    margin:0 0 32px;
+    color:var(--muted);
+    font-size:15px;
+    line-height:1.7;
+}
+
+#skills .skills-grid{
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:18px;
+}
+
+#skills .skill-card{
+    width:100%;
+    min-width:0;
+    padding:28px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:14px;
+    overflow:hidden;
+    transition:transform .3s ease,border-color .3s ease;
+}
+
+#skills .skill-card:hover{
+    transform:translateY(-5px);
+    border-color:var(--orange);
+}
+
+#skills .skill-top{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:20px;
+}
+
+#skills .skill-number{
+    color:var(--orange);
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+#skills .skill-line{
+    height:1px;
+    flex:1;
+    background:var(--line);
+}
+
+#skills .skill-card h3{
+    margin:0 0 10px;
+    color:var(--text);
+    font-size:21px;
+}
+
+#skills .skill-card p{
+    margin:0 0 20px;
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.6;
+}
+
+#skills .skill-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+}
+
+#skills .skill-tags span{
+    display:inline-block;
+    padding:8px 11px;
+    border:1px solid var(--line);
+    background:var(--surface2);
+    border-radius:6px;
+    color:#c7c5bd;
+    font-size:13px;
+}
+
+#skills .skill-card.learning{
+    border-style:dashed;
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    #skills .skills-intro{
+        font-size:14px;
+        margin-bottom:24px;
+    }
+
+    #skills .skills-grid{
+        grid-template-columns:1fr;
+        gap:14px;
+    }
+
+    #skills .skill-card{
+        padding:22px;
+    }
+
+    #skills .skill-card h3{
+        font-size:19px;
+    }
+
+    #skills .skill-card p{
+        font-size:13px;
+    }
+
+    #skills .skill-tags span{
+        font-size:12px;
+        padding:7px 9px;
+    }
+}
+</style>
+
 
 <!-- SKILLS -->
+
 <section id="skills" class="section reveal">
 
     <div class="section-head">
@@ -936,8 +1069,8 @@ footer{
 
     <div class="skills-grid">
 
-        <!-- Development -->
         <div class="skill-card">
+
             <div class="skill-top">
                 <span class="skill-number">01</span>
                 <span class="skill-line"></span>
@@ -955,13 +1088,14 @@ footer{
                 <span>JavaScript</span>
                 <span>Python</span>
                 <span>Java</span>
-                <span>Git</span>
                 <span>GitHub</span>
             </div>
+
         </div>
 
-        <!-- Creative -->
+
         <div class="skill-card">
+
             <div class="skill-top">
                 <span class="skill-number">02</span>
                 <span class="skill-line"></span>
@@ -979,10 +1113,12 @@ footer{
                 <span>Content Creation</span>
                 <span>Script Writing</span>
             </div>
+
         </div>
 
-        <!-- AI -->
+
         <div class="skill-card">
+
             <div class="skill-top">
                 <span class="skill-number">03</span>
                 <span class="skill-line"></span>
@@ -1001,10 +1137,12 @@ footer{
                 <span>AI Tools</span>
                 <span>AI-assisted Development</span>
             </div>
+
         </div>
 
-        <!-- Learning -->
+
         <div class="skill-card learning">
+
             <div class="skill-top">
                 <span class="skill-number">04</span>
                 <span class="skill-line"></span>
@@ -1013,7 +1151,7 @@ footer{
             <h3>Currently Learning</h3>
 
             <p>
-                Areas I'm actively improving as I continue my engineering journey.
+                Areas I'm actively improving  and learning as I continue my engineering journey.
             </p>
 
             <div class="skill-tags">
@@ -1023,12 +1161,12 @@ footer{
                 <span>Backend Development</span>
                 <span>Problem Solving</span>
             </div>
+
         </div>
 
     </div>
 
 </section>
-
 
 
 <!-- PROJECTS -->
@@ -1117,7 +1255,7 @@ View GitHub repository ↗
 
 
 <div class="gallery-item">
-    <img src="Code%20bharat.jpg" alt="Code Bharat">
+    <img src="code-bharat.jpg" alt="Code Bharat">
          alt="Code Bharat">
     <div class="gallery-label">
         CODE BHARAT '25
